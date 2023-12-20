@@ -1,10 +1,12 @@
 <?php
+
 /**
  * Class AuthorizationService
  *
  * @author Diego Wagner <diegowagner4@gmail.com>
  * http://www.discoverytecnologia.com.br
  */
+
 namespace Dsc\MercadoLivre\Resources\Authorization;
 
 use Dsc\MercadoLivre\AccessToken;
@@ -28,7 +30,7 @@ class AuthorizationService extends BaseService implements ResourceService
         $meli = $this->getMeli();
         $environment = $meli->getEnvironment();
 
-        
+
         $params = [
             "client_id"     => $meli->getClientId(),
             "response_type" => "code",
@@ -105,7 +107,7 @@ class AuthorizationService extends BaseService implements ResourceService
     private function getToken($data)
     {
         $meli = $this->getMeli();
-        $environment = $meli->getEnvironment(); 
+        $environment = $meli->getEnvironment();
         $uri     = $environment->getOAuthUri();
         $storage = $environment->getConfiguration()->getStorage();
 

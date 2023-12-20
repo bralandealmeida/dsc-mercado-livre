@@ -1,10 +1,12 @@
 <?php
+
 /**
  * Interface Serializer
  *
  * @author Diego Wagner <diegowagner4@gmail.com>
  * http://www.discoverytecnologia.com.br
  */
+
 namespace Dsc\MercadoLivre\Parser;
 
 use JMS\Serializer\DeserializationContext;
@@ -17,9 +19,11 @@ interface SerializerInterface extends JMSSerializerInterface
      * @param object $object
      * @param string $format
      * @param SerializationContext|null $context
-     * @return mixed
+     * @param ?string $type
+     *
+     * @return string
      */
-    public function serialize($object, $format = Formatter::JSON, SerializationContext $context = null);
+    public function serialize($object, $format = Formatter::JSON, SerializationContext $context = null, ?string $type = null): string;
 
     /**
      * @param string $data
@@ -29,4 +33,4 @@ interface SerializerInterface extends JMSSerializerInterface
      * @return mixed
      */
     public function deserialize($data, $type, $format = Formatter::JSON, DeserializationContext $context = null);
-} 
+}
